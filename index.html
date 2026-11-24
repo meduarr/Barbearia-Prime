@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbearia Prime | Cortes masculinos e agendamento online</title>
+    <meta
+      name="description"
+      content="Barbearia Prime: degradê, corte americano, social, militar, na tesoura, barba e escova. Agende seu horário online."
+    />
+    <meta name="theme-color" content="#0B0B0B" />
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+    <!-- Tipografia: Archivo (títulos, com largura variável) + Manrope (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Link de acessibilidade para pular direto ao conteúdo -->
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- =====================================================================
+       1. CABEÇALHO FIXO
+       ===================================================================== -->
+    <header class="header" id="header">
+      <div class="header__inner container">
+        <!-- Logo + nome -->
+        <a
+          href="#home"
+          class="brand"
+          aria-label="Barbearia Prime — voltar ao início"
+        >
+          <img
+            src="assets/img/logo.png"
+            alt=""
+            class="brand__logo"
+            width="52"
+            height="44"
+          />
+          <span class="brand__name">Barbearia <strong>Prime</strong></span>
+        </a>
+
+        <!-- Menu de navegação -->
+        <nav class="nav" id="nav" aria-label="Menu principal">
+          <ul class="nav__list">
+            <!-- Os ícones (.nav__icon) aparecem só no menu do celular/tablet -->
+            <li>
+              <a href="#home" class="nav__link is-active">
+                <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 10.5 12 3l9 7.5" />
+                  <path d="M5 9v11h14V9" />
+                  <path d="M10 20v-6h4v6" />
+                </svg>
+                Home</a
+              >
+            </li>
+            <li>
+              <a href="#cortes" class="nav__link">
+                <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="6" cy="6" r="3" />
+                  <circle cx="6" cy="18" r="3" />
+                  <path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12" />
+                </svg>
+                Cortes</a
+              >
+            </li>
+            <li>
+              <a href="#promocoes" class="nav__link">
+                <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"
+                  />
+                  <circle cx="7.5" cy="7.5" r="1.5" />
+                </svg>
+                Promoções</a
+              >
+            </li>
+            <li>
+              <a href="#diferenciais" class="nav__link">
+                <svg class="nav__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z"
+                  />
+                </svg>
+                Diferenciais</a
+              >
+            </li>
+            <li>
+              <a href="#agendamento" class="nav__link nav__link--cta"
+                >Agendamento</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Barra de pesquisa -->
+        <form class="search" id="search" role="search" autocomplete="off">
+          <label for="search-input" class="sr-only"
+            >Pesquisar cortes e serviços</label
+          >
+          <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            class="search__input"
+            placeholder="Buscar corte… ex.: degradê"
+          />
+          <button
+            type="button"
+            class="search__clear"
+            id="search-clear"
+            aria-label="Limpar pesquisa"
+            hidden
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Botões exclusivos do celular -->
+        <div class="header__mobile-actions">
+          <button
+            type="button"
+            class="icon-btn"
+            id="search-toggle"
+            aria-label="Abrir pesquisa"
+            aria-expanded="false"
+            aria-controls="search"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="icon-btn burger"
+            id="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- ===================================================================
+         2. BANNER / CARROSSEL
+         =================================================================== -->
+      <section
+        class="hero"
+        id="home"
+        aria-roledescription="carrossel"
+        aria-label="Estilos de corte"
+      >
+        <div class="carousel" id="carousel">
+          <div class="carousel__track">
+            <!-- Slide 1 -->
+            <article
+              class="slide is-active"
+              aria-roledescription="slide"
+              aria-label="1 de 5"
+            >
+              <img
+                src="assets/img/carrossel/barbearia.jpg"
+                alt="Interior de barbearia com cadeiras clássicas e parede de tijolos"
+                class="slide__img"
+                fetchpriority="high"
+              />
+              <div class="slide__content container">
+                <span class="slide__eyebrow">Barbearia Prime</span>
+                <h1 class="slide__title">Estilo que se <em>impõe</em></h1>
+                <p class="slide__text">
+                  Cortes modernos, acabamento preciso e horário marcado sem
+                  espera.
+                </p>
+                <a href="#agendamento" class="btn btn--primary"
+                  >Agendar horário</a
+                >
+              </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article
+              class="slide"
+              aria-roledescription="slide"
+              aria-label="2 de 5"
+            >
+              <img
+                src="assets/img/carrossel/degrade-detalhe.jpg"
+                alt="Barbeiro fazendo acabamento de degradê na lateral da cabeça"
+                class="slide__img"
+                loading="lazy"
+              />
+              <div class="slide__content container">
+                <span class="slide__eyebrow">Low · Mid · High</span>
+                <h2 class="slide__title">Degradê no <em>detalhe</em></h2>
+                <p class="slide__text">
+                  Transições suaves, do baixo ao alto, no ponto certo para o seu
+                  rosto.
+                </p>
+                <a href="#cortes" class="btn btn--primary">Ver cortes</a>
+              </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article
+              class="slide"
+              aria-roledescription="slide"
+              aria-label="3 de 5"
+            >
+              <img
+                src="assets/img/carrossel/crop-texturizado.jpg"
+                alt="Barbeiro modelando corte crop texturizado"
+                class="slide__img"
+                loading="lazy"
+              />
+              <div class="slide__content container">
+                <span class="slide__eyebrow">Tendência</span>
+                <h2 class="slide__title">Textura com <em>atitude</em></h2>
+                <p class="slide__text">
+                  Crop texturizado, topete e muito mais: o que está em alta,
+                  feito com técnica.
+                </p>
+                <a href="#cortes" class="btn btn--primary">Explorar estilos</a>
+              </div>
+            </article>
+
+            <!-- Slide 4 -->
+            <article
+              class="slide"
+              aria-roledescription="slide"
+              aria-label="4 de 5"
+            >
+              <img
+                src="assets/img/carrossel/barba-navalha.jpg"
+                alt="Cliente recebendo acabamento de barba com navalha"
+                class="slide__img"
+                loading="lazy"
+              />
+              <div class="slide__content container">
+                <span class="slide__eyebrow">Barba</span>
+                <h2 class="slide__title">Navalha, toalha <em>quente</em></h2>
+                <p class="slide__text">
+                  O ritual clássico da barbearia, com o cuidado que a sua barba
+                  merece.
+                </p>
+                <a href="#cortes" class="btn btn--primary">Serviços de barba</a>
+              </div>
+            </article>
+
+            <!-- Slide 5 -->
+            <article
+              class="slide"
+              aria-roledescription="slide"
+              aria-label="5 de 5"
+            >
+              <img
+                src="assets/img/servicos/platinado.jpg"
+                alt="Corte platinado com topete e degradê lateral"
+                style="object-position: center 15%"
+                class="slide__img"
+                loading="lazy"
+              />
+              <div class="slide__content container">
+                <span class="slide__eyebrow">Promoção</span>
+                <h2 class="slide__title">Platinado com <em>10% OFF</em></h2>
+                <p class="slide__text">
+                  Ouse no visual com desconto especial no corte platinado.
+                </p>
+                <a href="#promocoes" class="btn btn--primary">Ver promoção</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Setas -->
+          <button
+            type="button"
+            class="carousel__arrow carousel__arrow--prev"
+            aria-label="Slide anterior"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 5l-7 7 7 7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="carousel__arrow carousel__arrow--next"
+            aria-label="Próximo slide"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <!-- Indicadores (gerados pelo JS) + barra de progresso do autoplay -->
+          <div class="carousel__footer container">
+            <div
+              class="carousel__dots"
+              role="tablist"
+              aria-label="Escolher slide"
+            ></div>
+            <span class="carousel__counter" aria-hidden="true"
+              ><b>01</b> / 05</span
+            >
+          </div>
+          <div class="carousel__progress" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <!-- Frase de impacto -->
+      <section class="manifesto" aria-label="Nosso manifesto">
+        <div class="container manifesto__inner reveal">
+          <span class="manifesto__mark" aria-hidden="true">“</span>
+          <p class="manifesto__text">
+            Um bom corte não muda quem&nbsp;você&nbsp;é.<br />
+            <span class="hl">Ele revela</span> a melhor versão de quem você já
+            é.
+          </p>
+          <p class="manifesto__sub">
+            Estilo é confiança. Autoestima começa na cadeira do barbeiro.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+         3. CORTES E SERVIÇOS
+         =================================================================== -->
+      <section class="section" id="cortes">
+        <div class="container">
+          <header class="section__head reveal">
+            <span class="eyebrow">Cortes &amp; serviços</span>
+            <h2 class="section__title">Os estilos mais pedidos do momento</h2>
+            <p class="section__lead">
+              Escolha o seu, veja o valor e agende em poucos cliques.
+            </p>
+          </header>
+
+          <!-- Filtros por categoria -->
+          <div
+            class="filters reveal"
+            role="tablist"
+            aria-label="Filtrar por categoria"
+          >
+            <button
+              type="button"
+              class="filter is-active"
+              data-filter="todos"
+              role="tab"
+              aria-selected="true"
+            >
+              Todos
+            </button>
+            <button
+              type="button"
+              class="filter"
+              data-filter="corte"
+              role="tab"
+              aria-selected="false"
+            >
+              Cortes
+            </button>
+            <button
+              type="button"
+              class="filter"
+              data-filter="servico"
+              role="tab"
+              aria-selected="false"
+            >
+              Barba &amp; escova
+            </button>
+          </div>
+
+          <!-- Status da busca -->
+          <p
+            class="search-status"
+            id="search-status"
+            aria-live="polite"
+            hidden
+          ></p>
+
+          <!-- Cards gerados por js/main.js a partir de js/data.js -->
+          <div class="grid" id="services-grid"></div>
+
+          <!-- Estado vazio da busca -->
+          <div class="empty" id="empty-state" hidden>
+            <p class="empty__title">Nenhum corte encontrado.</p>
+            <p>Tente outro nome, como “degradê”, “social” ou “barba”.</p>
+            <button type="button" class="btn btn--dark" id="empty-clear">
+              Limpar pesquisa
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+         4. PROMOÇÕES
+         =================================================================== -->
+      <section class="promo" id="promocoes">
+        <div class="promo__stripes" aria-hidden="true"></div>
+        <div class="container">
+          <header class="section__head section__head--light reveal">
+            <span class="eyebrow eyebrow--blue">Promoção</span>
+            <h2 class="section__title">Oferta em destaque</h2>
+          </header>
+
+          <!-- Card promocional gerado por js/main.js -->
+          <div id="promo-card"></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+         5. DIFERENCIAIS (sugestão de seção extra)
+         =================================================================== -->
+      <section class="section section--soft" id="diferenciais">
+        <div class="container diff">
+          <div class="diff__media reveal">
+            <img
+              src="assets/img/ambiente.jpg"
+              alt="Barbeiro penteando o cabelo de um cliente"
+              loading="lazy"
+            />
+            <div class="diff__badge">
+              <strong>24h</strong>
+              <span>agendamento<br />online</span>
+            </div>
+          </div>
+
+          <div class="diff__content">
+            <header class="section__head section__head--left reveal">
+              <span class="eyebrow">Por que a Prime</span>
+              <h2 class="section__title">
+                Seu tempo e seu estilo, levados a sério
+              </h2>
+            </header>
+
+            <ul class="features">
+              <li class="feature reveal">
+                <span class="feature__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M3 10h18M8 3v4M16 3v4" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Horário marcado, sem fila</h3>
+                  <p>
+                    Escolha o dia e o horário livre direto no site. Chegou,
+                    sentou, cortou.
+                  </p>
+                </div>
+              </li>
+              <li class="feature reveal">
+                <span class="feature__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.1A8 8 0 1 1 20 12Z"
+                    />
+                    <path d="M9 10h6M9 13.5h4" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Confirmação pelo WhatsApp</h3>
+                  <p>
+                    Cada reserva chega direto no WhatsApp do barbeiro, com todos
+                    os detalhes.
+                  </p>
+                </div>
+              </li>
+              <li class="feature reveal">
+                <span class="feature__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="6" cy="6" r="3" />
+                    <circle cx="6" cy="18" r="3" />
+                    <path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Do clássico à tendência</h3>
+                  <p>
+                    Degradês, tesoura, crop, topete, barba e platinado num só
+                    lugar.
+                  </p>
+                </div>
+              </li>
+              <li class="feature reveal">
+                <span class="feature__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"
+                    />
+                    <circle cx="7.5" cy="7.5" r="1.5" />
+                  </svg>
+                </span>
+                <div>
+                  <h3>Preço claro</h3>
+                  <p>
+                    Todos os valores à vista no site, antes de você agendar. Sem
+                    surpresas.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+         6. AGENDAMENTO
+         =================================================================== -->
+      <section class="section booking-section" id="agendamento">
+        <div class="container booking">
+          <div class="booking__intro reveal">
+            <span class="eyebrow">Agendamento</span>
+            <h2 class="section__title">Reserve seu horário</h2>
+            <p class="section__lead">
+              Preencha os dados, escolha o dia e um horário livre. Assim que
+              você confirmar, o barbeiro recebe a reserva no WhatsApp.
+            </p>
+
+            <ol class="steps">
+              <li><span>1</span> Seus dados</li>
+              <li><span>2</span> Serviço</li>
+              <li><span>3</span> Data e horário</li>
+              <li><span>4</span> Confirmação</li>
+            </ol>
+
+            <!-- Resumo da reserva (preenchido em tempo real) -->
+            <div class="summary" id="booking-summary" aria-live="polite">
+              <p class="summary__title">Resumo</p>
+              <dl>
+                <div>
+                  <dt>Serviço</dt>
+                  <dd data-summary="servico">—</dd>
+                </div>
+                <div>
+                  <dt>Data</dt>
+                  <dd data-summary="data">—</dd>
+                </div>
+                <div>
+                  <dt>Horário</dt>
+                  <dd data-summary="hora">—</dd>
+                </div>
+                <div class="summary__total">
+                  <dt>Total</dt>
+                  <dd data-summary="total">—</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <form class="booking__form reveal" id="booking-form" novalidate>
+            <!-- Aviso exibido apenas quando o servidor não está configurado -->
+            <div class="notice" id="booking-notice" hidden></div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="b-nome">Nome completo</label>
+                <input
+                  type="text"
+                  id="b-nome"
+                  name="nome"
+                  autocomplete="name"
+                  placeholder="Como podemos te chamar?"
+                  required
+                  minlength="3"
+                  maxlength="60"
+                />
+                <small class="field__error"></small>
+              </div>
+              <div class="field">
+                <label for="b-telefone">Telefone / WhatsApp</label>
+                <input
+                  type="tel"
+                  id="b-telefone"
+                  name="telefone"
+                  autocomplete="tel"
+                  inputmode="numeric"
+                  placeholder="(00) 00000-0000"
+                  required
+                />
+                <small class="field__error"></small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="b-servico">Serviço</label>
+              <div class="select">
+                <select id="b-servico" name="servico" required>
+                  <option value="">Selecione o serviço</option>
+                </select>
+              </div>
+              <small class="field__error"></small>
+            </div>
+
+            <fieldset class="field">
+              <legend>Data</legend>
+              <div
+                class="days"
+                id="b-dias"
+                role="radiogroup"
+                aria-label="Escolha o dia"
+              ></div>
+              <small class="field__error"></small>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>
+                Horário <span class="legend-hint" id="slots-hint"></span>
+              </legend>
+              <div
+                class="slots"
+                id="b-horarios"
+                role="radiogroup"
+                aria-label="Escolha o horário"
+              >
+                <p class="slots__placeholder">
+                  Escolha um dia para ver os horários disponíveis.
+                </p>
+              </div>
+              <div class="slots-legend" aria-hidden="true">
+                <span><i class="dot dot--free"></i> Livre</span>
+                <span><i class="dot dot--busy"></i> Ocupado</span>
+              </div>
+              <small class="field__error"></small>
+            </fieldset>
+
+            <button
+              type="submit"
+              class="btn btn--primary btn--block btn--lg"
+              id="booking-submit"
+            >
+              <span class="btn__label">Confirmar agendamento</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-foot">
+              Seus dados são usados apenas para confirmar o seu horário.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+       7. RODAPÉ
+       ===================================================================== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <a href="#home" class="brand brand--footer">
+            <img
+              src="assets/img/logo.png"
+              alt=""
+              class="brand__logo"
+              width="42"
+              height="36"
+            />
+            <span class="brand__name">Barbearia <strong>Prime</strong></span>
+          </a>
+          <ul class="footer__contacts" id="footer-contacts">
+            <!-- Preenchido por js/main.js a partir de js/config.js -->
+          </ul>
+          <p class="footer__copy">
+            © <span id="year"></span> Barbearia Prime. Todos os direitos
+            reservados.
+          </p>
+        </div>
+
+        <!-- Assinatura da desenvolvedora -->
+        <div class="footer__right">
+          <span class="dev" title="Site desenvolvido por ME">
+            <span class="dev__label">Desenvolvido por</span>
+            <svg
+              class="dev__logo"
+              viewBox="0 0 48 48"
+              role="img"
+              aria-label="ME"
+            >
+              <rect
+                x="1"
+                y="1"
+                width="46"
+                height="46"
+                rx="12"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="M11 33V15l7 10 7-10v18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M38 15h-8v18h8M30 24h6"
+                fill="none"
+                stroke="#3A6BE0"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal de confirmação do agendamento -->
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      hidden
+    >
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__box">
+        <div class="modal__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+        </div>
+        <h3 id="modal-title">Agendamento confirmado!</h3>
+        <div class="modal__body" id="modal-body"></div>
+        <div class="modal__actions" id="modal-actions"></div>
+      </div>
+    </div>
+
+    <!-- Toast para mensagens rápidas -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Scripts (ordem importa: config → dados → interface → agendamento) -->
+    <script src="js/config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+  </body>
+</html>
